@@ -1,0 +1,17 @@
+{
+  "name": "microsb",
+  "version": "1.0.0",
+  "description": "mini soundboard based on extended function keys",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "author": "ngiano",
+  "license": "MIT",
+  "dependencies": {
+	"opn": "^5.0.0",
+	"pkg": "^3.0.3",
+	"ws": "^2.3.1",
+	"fs-extra": "^3.0.1"
+  },
+}

@@ -1,0 +1,150 @@
+<html>
+<head>
+<title>MSB output</title>
+<style>
+.hidden {
+	visibility:hidden;
+}
+img {
+	width: 50%;
+	position:absolute;
+    bottom:0;
+    left:0;
+}
+</style>
+</head>
+<body>
+<image id="image" src="data/sbE.png">
+</image>
+<audio id="player"></audio>
+<script>
+var sb1 = new Audio('data/sb1.mp3');
+var sb2 = new Audio('data/sb2.mp3');
+var sb3 = new Audio('data/sb3.mp3');
+var sb4 = new Audio('data/sb4.mp3');
+var sb5 = new Audio('data/sb5.mp3');
+var sb6 = new Audio('data/sb6.mp3');
+var sb7 = new Audio('data/sb7.mp3');
+var sb8 = new Audio('data/sb8.mp3');
+var sb9 = new Audio('data/sb9.mp3');
+var sb10 = new Audio('data/sb10.mp3');
+var player = document.getElementById('player');
+var pattern1 = "^trigger ([0-9]+)";
+var re1 = new RegExp(pattern1,"i");
+//create a new WebSocket object.
+websocket = new WebSocket("ws://localhost:8081/");
+websocket.onopen = function() {
+	document.getElementById('image').classList.add('hidden')
+};
+websocket.onclose = function() {
+	document.getElementById('image').src = 'data/sbE.png'
+	document.getElementById('image').classList.remove('hidden')
+	setTimeout(function() {
+		location.reload();
+	},25000)
+};
+websocket.onmessage = function(ev) {
+	if (re1.test(ev.data)) {
+		document.getElementById('image').classList.add('hidden')
+		var oldSrc = player.src;
+		player.src = "";
+		var message = ev.data;
+		var matches = message.match(pattern1);
+		clearTimeout()
+		switch(parseInt(matches[1])) {
+			case 1:
+				document.getElementById('image').src = 'data/sb1.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb1.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb1.duration * 1000))
+				break;
+			case 2:
+				document.getElementById('image').src = 'data/sb2.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb2.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb2.duration * 1000))
+				break;
+			case 3:
+				document.getElementById('image').src = 'data/sb3.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb3.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb3.duration * 1000))
+				break;
+			case 4:
+				document.getElementById('image').src = 'data/sb4.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb4.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb4.duration * 1000))
+				break;
+			case 5:
+				document.getElementById('image').src = 'data/sb5.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb5.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb5.duration * 1000))
+				break;
+			case 6:
+				document.getElementById('image').src = 'data/sb6.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb6.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb6.duration * 1000))
+				break;
+			case 7:
+				document.getElementById('image').src = 'data/sb7.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb7.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb7.duration * 1000))
+				break;
+			case 8:
+				document.getElementById('image').src = 'data/sb8.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb8.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb8.duration * 1000))
+				break;
+			case 9:
+				document.getElementById('image').src = 'data/sb9.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb9.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb9.duration * 1000))
+				break;
+			case 10:
+				document.getElementById('image').src = 'data/sb10.png'
+				document.getElementById('image').classList.remove('hidden')
+				player.src = 'data/sb10.mp3';
+				player.play();
+				setTimeout(function() {
+					document.getElementById('image').classList.add('hidden')
+				},(sb10.duration * 1000))
+				break;
+		}
+	};
+}
+</script>
+</body>
+</html>
