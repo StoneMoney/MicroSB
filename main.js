@@ -124,7 +124,7 @@ var re1 = new RegExp(pattern1,'i');
 fs.copySync(result,baseFolder+'/result.html');
 fs.copySync(sbImgE,dataFolder+'/sbE.png');
 //open autohotkey file
-opn(baseFolder+'/ahk/exe/MicroSB AutoHotKey Script.exe');
+opn(baseFolder+'/ahk/exe/MicroSB AutoHotKey Script 1.exe');
 wss.on('connection', function connection(ws) {
 	ws.on('message', function incoming(message) {
 		if(re1.test(message)) {
