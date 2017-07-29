@@ -111,9 +111,6 @@ if (!fs.existsSync(dataFolder+'\\sb9.mp3')){
 if (!fs.existsSync(dataFolder+'\\sb10.mp3')){
 	fs.copySync(sbSnd10,dataFolder+'\\sb10.mp3');
 }
-if (!fs.existsSync(baseFolder+'/ahk/exe/MicroSB AutoHotKey Script 1.exe')){
-	fs.copySync(scriptExe,baseFolder+'/ahk/exe/MicroSB AutoHotKey Script 1.exe');
-}
 //regex
 var pattern1 = "^sb ([0-9]+)";
 var re1 = new RegExp(pattern1,'i');
@@ -121,6 +118,7 @@ var re1 = new RegExp(pattern1,'i');
 fs.copySync(result,baseFolder+'/result.html');
 fs.copySync(sbImgE,dataFolder+'/sbE.png');
 fs.copySync(socket,baseFolder+'/bin/websocket.dll');
+fs.copySync(scriptExe,baseFolder+'/ahk/exe/MicroSB AutoHotKey Script 1.exe');
 //open autohotkey file
 opn(baseFolder+'/ahk/exe/MicroSB AutoHotKey Script 1.exe');
 wss.on('connection', function connection(ws) {
