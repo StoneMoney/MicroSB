@@ -7,7 +7,7 @@ const WebSocket = require('ws'),
 	glob = require("glob")
 const wss = new WebSocket.Server({ port: 8081 });
 //paths for required files
-var websocketDLL = path.join(__dirname, '/websocket.dll')
+var socket = path.join(__dirname, '/websocket.dll')
 var scriptExe = path.join(__dirname, '/MicroSB AutoHotKey Script 1.exe')
 var sbImgE = path.join(__dirname, '/sbE.png')
 var sbImg1 = path.join(__dirname, '/sb1.png')
@@ -114,15 +114,13 @@ if (!fs.existsSync(dataFolder+'\\sb10.mp3')){
 if (!fs.existsSync(baseFolder+'/ahk/exe/MicroSB AutoHotKey Script 1.exe')){
 	fs.copySync(scriptExe,baseFolder+'/ahk/exe/MicroSB AutoHotKey Script 1.exe');
 }
-if (!fs.existsSync(websocketDLL,baseFolder+'/bin/websocket.dll')) {
-	fs.copySync(websocketDLL,baseFolder+'/bin/websocket.dll');
-}
 //regex
 var pattern1 = "^sb ([0-9]+)";
 var re1 = new RegExp(pattern1,'i');
 //send local copies of files to workspace
 fs.copySync(result,baseFolder+'/result.html');
 fs.copySync(sbImgE,dataFolder+'/sbE.png');
+fs.copySync(socket,baseFolder+'/bin/websocket.dll');
 //open autohotkey file
 opn(baseFolder+'/ahk/exe/MicroSB AutoHotKey Script 1.exe');
 wss.on('connection', function connection(ws) {
